@@ -4,18 +4,24 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "server": "npx json-server --watch db.json",
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "server": "npx json-server db.json",
     "lint": "eslint .",
     "preview": "vite preview",
     "prepare": "husky"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.5",
+    "@radix-ui/react-dropdown-menu": "^2.1.5",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "json-server": "1.0.0-beta.3",
+    "lucide-react": "^0.474.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.29.0"
+    "react-router-dom": "^6.29.0",
+    "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
