@@ -40,7 +40,7 @@ export const database = {
   tickets: [
     {
       id: "1",
-      title: "Product Configuration Specialist",
+      title: "Dynamic Accounts Director",
       status: "open",
       description:
         "Nihil cum voluptatum ullam. Fugit voluptatibus natus quia quidem et ut suscipit non occaecati. Eum nemo eveniet neque eum suscipit omnis aut magnam.",
@@ -49,7 +49,7 @@ export const database = {
     },
     {
       id: "2",
-      title: "Product Configuration Specialist",
+      title: "Senior Configuration Engineer",
       status: "open",
       description:
         "Nihil cum voluptatum ullam. Fugit voluptatibus natus quia quidem et ut suscipit non occaecati. Eum nemo eveniet neque eum suscipit omnis aut magnam.",
@@ -58,7 +58,7 @@ export const database = {
     },
     {
       id: "3",
-      title: "Product Configuration Specialist",
+      title: "National Group Architect",
       status: "processing",
       description:
         "Nihil cum voluptatum ullam. Fugit voluptatibus natus quia quidem et ut suscipit non occaecati. Eum nemo eveniet neque eum suscipit omnis aut magnam.",
@@ -67,7 +67,7 @@ export const database = {
     },
     {
       id: "4",
-      title: "Product Configuration Specialist",
+      title: "Future Security Analyst",
       status: "processing",
       description:
         "Nihil cum voluptatum ullam. Fugit voluptatibus natus quia quidem et ut suscipit non occaecati. Eum nemo eveniet neque eum suscipit omnis aut magnam.",
@@ -76,7 +76,7 @@ export const database = {
     },
     {
       id: "5",
-      title: "Product Configuration Specialist",
+      title: "Corporate Accounts Assistant",
       status: "closed",
       description:
         "Nihil cum voluptatum ullam. Fugit voluptatibus natus quia quidem et ut suscipit non occaecati. Eum nemo eveniet neque eum suscipit omnis aut magnam.",
@@ -85,7 +85,7 @@ export const database = {
     },
     {
       id: "6",
-      title: "Product Configuration Specialist",
+      title: "Legacy Paradigm Technician",
       status: "open",
       description:
         "Nihil cum voluptatum ullam. Fugit voluptatibus natus quia quidem et ut suscipit non occaecati. Eum nemo eveniet neque eum suscipit omnis aut magnam.",
@@ -94,7 +94,7 @@ export const database = {
     },
     {
       id: "7",
-      title: "Product Configuration Specialist",
+      title: "Future Identity Administrator",
       status: "closed",
       description:
         "Nihil cum voluptatum ullam. Fugit voluptatibus natus quia quidem et ut suscipit non occaecati. Eum nemo eveniet neque eum suscipit omnis aut magnam.",
