@@ -23,12 +23,17 @@ export default function TicketTableRow({ items }: ITicketTableRowProps) {
   };
 
   return (
-    <TableRow>
+    <TableRow className="">
       <TableCell>{items.id}</TableCell>
-      <TableCell>
+      <TableCell className="md:w-fit">
         <Dialog open={isDetailsOpen} onOpenChange={setIsDetailsOpen}>
           <DialogTrigger asChild>
-            <Button variant={"ghost"}>{items.title}</Button>
+            <Button
+              variant={"ghost"}
+              className="leading-tight md:text-ellipsis"
+            >
+              <span className="truncate"> {items.title}</span>
+            </Button>
           </DialogTrigger>
           {isDetailsOpen && (
             <DetailsTicket open={isDetailsOpen} ticketId={items.id} />
@@ -43,7 +48,6 @@ export default function TicketTableRow({ items }: ITicketTableRowProps) {
           new Date(Number(items.updated_at) * 1000).toLocaleString(),
         )}
       </TableCell>
-      <TableCell>{items.id}</TableCell>
     </TableRow>
   );
 }

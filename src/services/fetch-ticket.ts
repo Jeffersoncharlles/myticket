@@ -11,16 +11,23 @@ export interface IFetchTicket {
 }
 
 export const fetchTicket = async (id: string) => {
+  await new Promise((resolve) => {
+    setTimeout(resolve, 2000);
+  });
+
   const data = database.tickets;
   const details = database.comments;
+  const users = database.users;
 
   const ticket = data.filter((ticket) => ticket.id === id);
 
   const comments = details.filter((comment) => comment.ticketsId === id);
+  const user = users.find((u) => u.id === id);
 
   const result = {
     ticket: {
       ...ticket,
+      user,
       comments,
     },
   };

@@ -26,7 +26,7 @@ const DetailsTicket = ({ ticketId, open }: DetailsTicketProps) => {
   console.log(ticketDetails);
 
   return (
-    <DialogContent>
+    <DialogContent className="w-[300px] sm:w-[340px] md:w-full">
       <DialogHeader>
         <DialogTitle></DialogTitle>
         <DialogDescription></DialogDescription>

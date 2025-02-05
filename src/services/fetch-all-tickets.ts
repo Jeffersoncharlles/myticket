@@ -11,6 +11,9 @@ export interface IFetchAllTickets {
 }
 
 export const fetchAllTickets = async () => {
+  await new Promise((resolve) => {
+    setTimeout(resolve, 2000);
+  });
   const result = database.tickets;
 
   return result;
