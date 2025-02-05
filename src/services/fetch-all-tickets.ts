@@ -4,17 +4,24 @@ export type OrderStatus = "open" | "closed" | "processing";
 export interface IFetchAllTickets {
   id: string;
   title: string;
-  status: OrderStatus;
+  status: OrderStatus | "all";
   description: string;
   created_at: string;
   updated_at: string;
 }
 
-export const fetchAllTickets = async () => {
+type IFetchAllTicketsProps = OrderStatus | "all";
+
+export const fetchAllTickets = async (filter: IFetchAllTicketsProps) => {
   await new Promise((resolve) => {
     setTimeout(resolve, 2000);
   });
   const result = database.tickets;
+
+  if (filter !== "all") {
+    const filters = result.filter((ticket) => ticket.status === filter);
+    return filters;
+  }
 
   return result;
 };

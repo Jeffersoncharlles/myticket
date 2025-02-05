@@ -48,6 +48,19 @@ export default function TicketTableRow({ items }: ITicketTableRowProps) {
           new Date(Number(items.updated_at) * 1000).toLocaleString(),
         )}
       </TableCell>
+      {/* <TableCell>
+        <Select defaultValue="all">
+          <SelectTrigger className="h-8 w-[180px]">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">Todos status</SelectItem>
+            <SelectItem value="open">Aberto</SelectItem>
+            <SelectItem value="canceled">Fechado</SelectItem>
+            <SelectItem value="processing">Em Progresso</SelectItem>
+          </SelectContent>
+        </Select>
+      </TableCell> */}
     </TableRow>
   );
 }

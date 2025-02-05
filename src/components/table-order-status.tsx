@@ -1,7 +1,7 @@
 export type OrderStatus = "open" | "closed" | "processing";
 
 export interface TableOrderStatusProps {
-  status: OrderStatus;
+  status: OrderStatus | "all";
 }
 
 const orderStatusMap: Record<OrderStatus, string> = {
@@ -33,7 +33,7 @@ export function TableOrderStatus({ status }: TableOrderStatusProps) {
       )}
 
       <span className="font-medium text-zinc-400">
-        {orderStatusMap[status]}
+        {status === "all" ? "Todos" : orderStatusMap[status]}
       </span>
     </div>
   );

@@ -14,29 +14,25 @@ import {
 import {
   fetchAllTickets,
   IFetchAllTickets,
+  OrderStatus,
 } from "../../services/fetch-all-tickets";
 
 export default function TicketPage() {
   const [tickets, setTickets] = useState<IFetchAllTickets[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  // const [searchTerm, setSearchTerm] = useState('');
-  // const [isSearching, setIsSearching] = useState(false);
-  // const debouncedSearchTerm = useDebounce(searchTerm, 300);
-  // const [sortStatusOrder, setSortStatusOrder] = useState();
-
-  // const handleHeaderSort = (header:string) => {
-
-  // }
+  const [tableFilterStatusSelected, setTableStatusFilterSelected] = useState<
+    OrderStatus | "all"
+  >("all");
 
   useEffect(() => {
     (async () => {
       setIsLoading(true);
-      const result = await fetchAllTickets();
+      const result = await fetchAllTickets(tableFilterStatusSelected);
 
       setTickets([...result]);
       setIsLoading(false);
     })();
-  }, []);
+  }, [tableFilterStatusSelected]);
 
   return (
     <>
@@ -45,8 +41,8 @@ export default function TicketPage() {
         <h1>Tickets</h1>
         <div className="">
           {/* Filters */}
-          <TableFilter />
-          <div className="w-full overflow-auto rounded-lg border border-zinc-200 shadow dark:border-gray-800">
+          <TableFilter onFilter={setTableStatusFilterSelected} />
+          <div className="w-full overflow-auto rounded-lg border border-zinc-200 shadow dark:border-zinc-800/80">
             {/* Table */}
             <Table className="text-zinc-200">
               <TableHeader>
@@ -58,10 +54,15 @@ export default function TicketPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {isLoading && <TableSkeleton />}
-                {tickets.map((table) => (
-                  <TicketTableRow key={table.id} items={table} />
-                ))}
+                {isLoading ? (
+                  <TableSkeleton />
+                ) : (
+                  <>
+                    {tickets.map((table) => (
+                      <TicketTableRow key={table.id} items={table} />
+                    ))}
+                  </>
+                )}
               </TableBody>
             </Table>
           </div>
