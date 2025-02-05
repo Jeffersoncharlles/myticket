@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+// import { useDebounce } from "@uidotdev/usehooks";
 import TicketTableRow from "../../components/ticket-table-row";
 import {
   Table,
@@ -15,12 +16,20 @@ import {
 
 export default function TicketPage() {
   const [tickets, setTickets] = useState<IFetchAllTickets[]>([]);
+  // const [searchTerm, setSearchTerm] = useState('');
+  // const [isSearching, setIsSearching] = useState(false);
+  // const debouncedSearchTerm = useDebounce(searchTerm, 300);
+  // const [sortStatusOrder, setSortStatusOrder] = useState();
+
+  // const handleHeaderSort = (header:string) => {
+
+  // }
 
   useEffect(() => {
     (async () => {
       const result = await fetchAllTickets();
 
-      setTickets(result);
+      setTickets([...result]);
     })();
   }, []);
 
@@ -33,17 +42,21 @@ export default function TicketPage() {
           {/* Filters */}
           <div>
             {/* Table */}
-            <Table>
+            <Table className="text-zinc-200">
               <TableHeader>
                 <TableRow>
-                  <TableHead></TableHead>
-                  <TableHead>Title</TableHead>
+                  <TableHead>ID</TableHead>
+                  <TableHead>Titulo</TableHead>
                   <TableHead>Status</TableHead>
-                  <TableHead></TableHead>
+                  <TableHead>Atualização</TableHead>
                   <TableHead></TableHead>
                 </TableRow>
               </TableHeader>
-              <TableBody>{tickets && <TicketTableRow />}</TableBody>
+              <TableBody>
+                {tickets.map((table) => (
+                  <TicketTableRow key={table.id} items={table} />
+                ))}
+              </TableBody>
             </Table>
           </div>
         </div>
