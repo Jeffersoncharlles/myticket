@@ -18,7 +18,7 @@ const TableFilter = ({ onFilter }: ITableFilter) => {
       <span className="text-sm font-semibold text-zinc-200">Filtros:</span>
       <Input
         placeholder="titulo"
-        className="h-8 w-auto rounded bg-zinc-950 placeholder:text-zinc-500"
+        className="h-8 w-auto rounded bg-zinc-950 text-zinc-200 placeholder:text-zinc-500"
       />
       <Select defaultValue="all" onValueChange={onFilter}>
         <SelectTrigger className="h-8 w-[180px] text-zinc-100">
