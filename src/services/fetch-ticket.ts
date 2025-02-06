@@ -43,7 +43,7 @@ export const fetchTicket = async (id: string) => {
 
   const ticket = data.find((ticket) => ticket.id === id);
   const user = users.find((u) => u.id === id);
-  if (!ticket?.id || user?.id) {
+  if (!ticket?.id && user?.id) {
     return;
   }
 

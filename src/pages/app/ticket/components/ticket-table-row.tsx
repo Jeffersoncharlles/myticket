@@ -31,6 +31,7 @@ export default function TicketTableRow({ items }: ITicketTableRowProps) {
             <Button
               variant={"ghost"}
               className="leading-tight md:text-ellipsis"
+              disabled={isDetailsOpen}
             >
               <span className="truncate"> {items.title}</span>
             </Button>

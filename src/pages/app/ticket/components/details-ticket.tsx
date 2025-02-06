@@ -17,17 +17,16 @@ interface DetailsTicketProps {
 }
 
 const DetailsTicket = ({ ticketId, open }: DetailsTicketProps) => {
-  const [ticketDetails, setTicketDetails] =
-    useState<IFechtTicketResponse | null>();
+  const [ticketDetails, setTicketDetails] = useState<
+    IFechtTicketResponse | undefined
+  >();
 
   useEffect(() => {
     (async () => {
       const result = await fetchTicket(ticketId);
 
-      if (result?.ticket.id) {
-        setTicketDetails(result);
-      } else {
-        setTicketDetails(null);
+      if (result?.ticket.id !== undefined) {
+        setTicketDetails(result as IFechtTicketResponse);
       }
     })();
   }, [open, ticketId]);
@@ -38,6 +37,8 @@ const DetailsTicket = ({ ticketId, open }: DetailsTicketProps) => {
       addSuffix: true,
     });
   };
+
+  console.log(ticketDetails);
 
   return (
     <>
