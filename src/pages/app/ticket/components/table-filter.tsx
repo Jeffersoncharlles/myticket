@@ -1,12 +1,12 @@
-import { Input } from "../../../../components/ui/input";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../../../../components/ui/select";
-import { OrderStatus } from "../../../../lib/database";
+} from "@/components/ui/select";
+import { OrderStatus } from "./table-order-status";
 
 interface ITableFilter {
   onFilter: (filter: OrderStatus | "all") => void;
