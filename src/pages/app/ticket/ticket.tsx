@@ -45,6 +45,10 @@ export default function TicketPage() {
     }
   };
 
+  const searchFilter = (search: string) => {
+    console.log(search);
+  };
+
   useEffect(() => {
     (async () => {
       setIsLoading(true);
@@ -69,7 +73,10 @@ export default function TicketPage() {
         <h1>Tickets</h1>
         <div className="">
           {/* Filters */}
-          <TableFilter onFilter={setTableStatusFilterSelected} />
+          <TableFilter
+            onFilter={setTableStatusFilterSelected}
+            search={searchFilter}
+          />
           <div className="w-full overflow-auto rounded-lg border border-zinc-200 shadow dark:border-zinc-800/80">
             {/* Table */}
             <Table className="text-zinc-200">

@@ -10,15 +10,17 @@ import { OrderStatus } from "./table-order-status";
 
 interface ITableFilter {
   onFilter: (filter: OrderStatus | "all") => void;
+  search: (filter: string) => void;
 }
 
-const TableFilter = ({ onFilter }: ITableFilter) => {
+const TableFilter = ({ onFilter, search }: ITableFilter) => {
   return (
     <div className="mb-6 flex flex-col items-center gap-2 sm:flex-row">
       <span className="text-sm font-semibold text-zinc-200">Filtros:</span>
       <Input
         placeholder="titulo"
         className="h-8 w-auto rounded bg-zinc-950 text-zinc-200 placeholder:text-zinc-500"
+        onChange={(e) => search(e.target.value)}
       />
       <Select defaultValue="all" onValueChange={onFilter}>
         <SelectTrigger className="h-8 w-[180px] text-zinc-100">
