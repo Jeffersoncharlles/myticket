@@ -10,6 +10,7 @@ import {
   IFetchAllTickets,
   OrderStatus,
 } from "@/services/fetch-all-tickets";
+import { getTime } from "date-fns";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import TableFilter from "./components/table-filter";
@@ -29,7 +30,13 @@ export default function TicketPage() {
     if (tickets) {
       setTickets((prevTickets) =>
         prevTickets.map((ticket) =>
-          ticket.id === id ? { ...ticket, status } : ticket,
+          ticket.id === id
+            ? {
+                ...ticket,
+                updated_at: getTime(Number(new Date()) / 1000).toString(),
+                status,
+              }
+            : ticket,
         ),
       );
     }
