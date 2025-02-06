@@ -143,4 +143,4 @@ export const database = {
       created_at: "1738759249",
     },
   ],
-} as const;
+};

@@ -20,12 +20,13 @@
 	<img src="https://img.shields.io/badge/HTML5-E34F26.svg?style=flat&logo=HTML5&logoColor=white" alt="HTML5">
 	<img src="https://img.shields.io/badge/PostCSS-DD3A0A.svg?style=flat&logo=PostCSS&logoColor=white" alt="PostCSS">
 	<img src="https://img.shields.io/badge/Prettier-F7B93E.svg?style=flat&logo=Prettier&logoColor=black" alt="Prettier">
-	<br>
 	<img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=flat&logo=JavaScript&logoColor=black" alt="JavaScript">
+	<br>
 	<img src="https://img.shields.io/badge/React-61DAFB.svg?style=flat&logo=React&logoColor=black" alt="React">
 	<img src="https://img.shields.io/badge/TypeScript-3178C6.svg?style=flat&logo=TypeScript&logoColor=white" alt="TypeScript">
 	<img src="https://img.shields.io/badge/Vite-646CFF.svg?style=flat&logo=Vite&logoColor=white" alt="Vite">
 	<img src="https://img.shields.io/badge/ESLint-4B32C3.svg?style=flat&logo=ESLint&logoColor=white" alt="ESLint">
+	<img src="https://img.shields.io/badge/datefns-770C56.svg?style=flat&logo=date-fns&logoColor=white" alt="datefns">
 </p>
 <p align="center">
 	<!-- default option, no dependency badges. -->
@@ -95,7 +96,6 @@
 
 ###  Project Index
 <details open>
-	<summary><b><code>MYTICKET/</code></b></summary>
 	<details> <!-- src Submodule -->
 		<summary><b>src</b></summary>
 		<blockquote>
@@ -122,6 +122,10 @@
 						<td><code>❯ REPLACE-ME</code></td>
 					</tr>
 					<tr>
+						<td><b><a href='https://github.com/Jeffersoncharlles/myticket/blob/master/src/lib/formate-date.ts'>formate-date.ts</a></b></td>
+						<td><code>❯ REPLACE-ME</code></td>
+					</tr>
+					<tr>
 						<td><b><a href='https://github.com/Jeffersoncharlles/myticket/blob/master/src/lib/database.ts'>database.ts</a></b></td>
 						<td><code>❯ REPLACE-ME</code></td>
 					</tr>
@@ -132,10 +136,6 @@
 				<summary><b>components</b></summary>
 				<blockquote>
 					<table>
-					<tr>
-						<td><b><a href='https://github.com/Jeffersoncharlles/myticket/blob/master/src/components/ticket-table-row.tsx'>ticket-table-row.tsx</a></b></td>
-						<td><code>❯ REPLACE-ME</code></td>
-					</tr>
 					<tr>
 						<td><b><a href='https://github.com/Jeffersoncharlles/myticket/blob/master/src/components/header.tsx'>header.tsx</a></b></td>
 						<td><code>❯ REPLACE-ME</code></td>
@@ -158,7 +158,15 @@
 								<td><code>❯ REPLACE-ME</code></td>
 							</tr>
 							<tr>
+								<td><b><a href='https://github.com/Jeffersoncharlles/myticket/blob/master/src/components/ui/input.tsx'>input.tsx</a></b></td>
+								<td><code>❯ REPLACE-ME</code></td>
+							</tr>
+							<tr>
 								<td><b><a href='https://github.com/Jeffersoncharlles/myticket/blob/master/src/components/ui/separator.tsx'>separator.tsx</a></b></td>
+								<td><code>❯ REPLACE-ME</code></td>
+							</tr>
+							<tr>
+								<td><b><a href='https://github.com/Jeffersoncharlles/myticket/blob/master/src/components/ui/select.tsx'>select.tsx</a></b></td>
 								<td><code>❯ REPLACE-ME</code></td>
 							</tr>
 							<tr>
@@ -205,12 +213,44 @@
 					<details>
 						<summary><b>app</b></summary>
 						<blockquote>
-							<table>
-							<tr>
-								<td><b><a href='https://github.com/Jeffersoncharlles/myticket/blob/master/src/pages/app/ticket.tsx'>ticket.tsx</a></b></td>
-								<td><code>❯ REPLACE-ME</code></td>
-							</tr>
-							</table>
+							<details>
+								<summary><b>ticket</b></summary>
+								<blockquote>
+									<table>
+									<tr>
+										<td><b><a href='https://github.com/Jeffersoncharlles/myticket/blob/master/src/pages/app/ticket/ticket.tsx'>ticket.tsx</a></b></td>
+										<td><code>❯ REPLACE-ME</code></td>
+									</tr>
+									</table>
+									<details>
+										<summary><b>components</b></summary>
+										<blockquote>
+											<table>
+											<tr>
+												<td><b><a href='https://github.com/Jeffersoncharlles/myticket/blob/master/src/pages/app/ticket/components/ticket-table-row.tsx'>ticket-table-row.tsx</a></b></td>
+												<td><code>❯ REPLACE-ME</code></td>
+											</tr>
+											<tr>
+												<td><b><a href='https://github.com/Jeffersoncharlles/myticket/blob/master/src/pages/app/ticket/components/table-skeleton.tsx'>table-skeleton.tsx</a></b></td>
+												<td><code>❯ REPLACE-ME</code></td>
+											</tr>
+											<tr>
+												<td><b><a href='https://github.com/Jeffersoncharlles/myticket/blob/master/src/pages/app/ticket/components/details-ticket.tsx'>details-ticket.tsx</a></b></td>
+												<td><code>❯ REPLACE-ME</code></td>
+											</tr>
+											<tr>
+												<td><b><a href='https://github.com/Jeffersoncharlles/myticket/blob/master/src/pages/app/ticket/components/table-order-status.tsx'>table-order-status.tsx</a></b></td>
+												<td><code>❯ REPLACE-ME</code></td>
+											</tr>
+											<tr>
+												<td><b><a href='https://github.com/Jeffersoncharlles/myticket/blob/master/src/pages/app/ticket/components/table-filter.tsx'>table-filter.tsx</a></b></td>
+												<td><code>❯ REPLACE-ME</code></td>
+											</tr>
+											</table>
+										</blockquote>
+									</details>
+								</blockquote>
+							</details>
 						</blockquote>
 					</details>
 				</blockquote>
@@ -230,6 +270,10 @@
 				<summary><b>services</b></summary>
 				<blockquote>
 					<table>
+					<tr>
+						<td><b><a href='https://github.com/Jeffersoncharlles/myticket/blob/master/src/services/fetch-ticket.ts'>fetch-ticket.ts</a></b></td>
+						<td><code>❯ REPLACE-ME</code></td>
+					</tr>
 					<tr>
 						<td><b><a href='https://github.com/Jeffersoncharlles/myticket/blob/master/src/services/fetch-all-tickets.ts'>fetch-all-tickets.ts</a></b></td>
 						<td><code>❯ REPLACE-ME</code></td>
