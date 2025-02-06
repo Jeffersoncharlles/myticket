@@ -15,10 +15,13 @@ interface ITableFilter {
 const TableFilter = ({ onFilter }: ITableFilter) => {
   return (
     <div className="mb-6 flex flex-col items-center gap-2 sm:flex-row">
-      <span className="text-sm font-semibold">Filtros:</span>
-      <Input placeholder="titulo" className="h-8 w-auto rounded" />
+      <span className="text-sm font-semibold text-zinc-200">Filtros:</span>
+      <Input
+        placeholder="titulo"
+        className="h-8 w-auto rounded bg-zinc-950 placeholder:text-zinc-500"
+      />
       <Select defaultValue="all" onValueChange={onFilter}>
-        <SelectTrigger className="h-8 w-[180px]">
+        <SelectTrigger className="h-8 w-[180px] text-zinc-100">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
