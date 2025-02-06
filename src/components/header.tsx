@@ -17,7 +17,7 @@ const Header = () => {
           </a>
           <a
             className="flex items-center gap-1.5 text-sm font-medium hover:text-zinc-400 data-[active=true]:text-zinc-400"
-            href="/ticket"
+            href="/"
           >
             <MailOpen className="h-4 w-4" />
             Ticket
