@@ -14,13 +14,17 @@ import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { TableCell, TableRow } from "@/components/ui/table";
 import { IFetchAllTickets } from "@/services/fetch-all-tickets";
 import DetailsTicket from "./details-ticket";
-import { TableOrderStatus } from "./table-order-status";
+import { OrderStatus, TableOrderStatus } from "./table-order-status";
 
 interface ITicketTableRowProps {
   items: IFetchAllTickets;
+  onUpdate: (id: string, status: OrderStatus) => Promise<void>;
 }
 
-export default function TicketTableRow({ items }: ITicketTableRowProps) {
+export default function TicketTableRow({
+  items,
+  onUpdate,
+}: ITicketTableRowProps) {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
   const formatDistant = (date: string) => {
@@ -28,6 +32,10 @@ export default function TicketTableRow({ items }: ITicketTableRowProps) {
       locale: ptBR,
       addSuffix: true,
     });
+  };
+
+  const handleSelect = (value: OrderStatus) => {
+    onUpdate(items.id, value);
   };
 
   return (
@@ -60,6 +68,7 @@ export default function TicketTableRow({ items }: ITicketTableRowProps) {
       <TableCell>
         <Select
           defaultValue={items.status}
+          onValueChange={handleSelect}
           disabled={["closed"].includes(items.status)}
         >
           <SelectTrigger className="h-8 w-[180px]">

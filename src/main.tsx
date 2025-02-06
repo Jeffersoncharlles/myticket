@@ -6,12 +6,15 @@ import { HelmetProvider } from "react-helmet-async";
 import { RouterProvider } from "react-router-dom";
 import "./index.css";
 import { router } from "./routes";
+// import { ThemeProvider } from "./context/theme-provider";
 setDefaultOptions({ locale: ptBR });
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <HelmetProvider>
+      {/* <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme"> */}
       <RouterProvider router={router} />
+      {/* </ThemeProvider> */}
     </HelmetProvider>
   </StrictMode>,
 );

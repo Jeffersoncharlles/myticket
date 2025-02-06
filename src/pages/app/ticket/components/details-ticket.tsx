@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { fetchTicket, IFechtTicketResponse } from "@/services/fetch-ticket";
-import { updateTicket } from "@/services/update-ticket";
+import { updateTicketDetails } from "@/services/update-ticket-details";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
 
@@ -27,7 +27,6 @@ const DetailsTicket = ({ ticketId, open }: DetailsTicketProps) => {
   useEffect(() => {
     (async () => {
       const result = await fetchTicket(ticketId);
-
       if (result?.ticket.id !== undefined) {
         setTicketDetails(result as IFechtTicketResponse);
       }
@@ -44,7 +43,7 @@ const DetailsTicket = ({ ticketId, open }: DetailsTicketProps) => {
   const handleCommentText = async () => {
     setIsLoading(true);
 
-    const result = await updateTicket({ id: ticketId, comment });
+    const result = await updateTicketDetails({ id: ticketId, comment });
     if (result?.ticket.id !== undefined) {
       setTicketDetails(result as IFechtTicketResponse);
     }
@@ -92,6 +91,7 @@ const DetailsTicket = ({ ticketId, open }: DetailsTicketProps) => {
               </div>
             ))}
           </div>
+          {/* Add Comments */}
           <div className="flex flex-col gap-4">
             <textarea
               className="h-36 w-full resize-none border border-zinc-600 bg-transparent"

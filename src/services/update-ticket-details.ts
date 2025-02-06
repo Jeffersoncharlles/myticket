@@ -7,7 +7,7 @@ interface IUpdateTicket {
   comment: string;
 }
 
-export const updateTicket = async ({ id, comment }: IUpdateTicket) => {
+export const updateTicketDetails = async ({ id, comment }: IUpdateTicket) => {
   await new Promise((resolve) => {
     setTimeout(resolve, 2000);
   });

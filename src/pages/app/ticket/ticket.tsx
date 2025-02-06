@@ -15,6 +15,7 @@ import { Helmet } from "react-helmet-async";
 import TableFilter from "./components/table-filter";
 import TableSkeleton from "./components/table-skeleton";
 import TicketTableRow from "./components/ticket-table-row";
+// import { updateAllTicketStatus } from "@/services/update-all-tickets-status";
 
 export default function TicketPage() {
   const [tickets, setTickets] = useState<IFetchAllTickets[]>([]);
@@ -22,6 +23,19 @@ export default function TicketPage() {
   const [tableFilterStatusSelected, setTableStatusFilterSelected] = useState<
     OrderStatus | "all"
   >("all");
+
+  const updateStatus = async (id: string, status: OrderStatus) => {
+    // const result = await updateAllTicketStatus(id, status);
+    if (tickets) {
+      setTickets((prevTickets) =>
+        prevTickets.map((ticket) =>
+          ticket.id === id ? { ...ticket, status } : ticket,
+        ),
+      );
+    }
+  };
+
+  useEffect(() => {}, []);
 
   useEffect(() => {
     (async () => {
@@ -65,7 +79,11 @@ export default function TicketPage() {
                 ) : (
                   <>
                     {tickets.map((table) => (
-                      <TicketTableRow key={table.id} items={table} />
+                      <TicketTableRow
+                        key={table.id}
+                        items={table}
+                        onUpdate={updateStatus}
+                      />
                     ))}
                   </>
                 )}
