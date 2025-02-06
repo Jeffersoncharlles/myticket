@@ -61,9 +61,7 @@ export default function TicketTableRow({
         <TableOrderStatus status={items.status} />
       </TableCell>
       <TableCell>
-        {formatDistant(
-          new Date(Number(items.updated_at) * 1000).toLocaleString(),
-        )}
+        {formatDistant(new Date(Number(items.updated_at) * 1000).toString())}
       </TableCell>
       <TableCell>
         <Select
