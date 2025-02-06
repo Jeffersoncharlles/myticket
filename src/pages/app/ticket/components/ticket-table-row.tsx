@@ -1,3 +1,10 @@
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { useState } from "react";
@@ -49,19 +56,21 @@ export default function TicketTableRow({ items }: ITicketTableRowProps) {
           new Date(Number(items.updated_at) * 1000).toLocaleString(),
         )}
       </TableCell>
-      {/* <TableCell>
-        <Select defaultValue="all">
+      <TableCell>
+        <Select
+          defaultValue={items.status}
+          disabled={["closed"].includes(items.status)}
+        >
           <SelectTrigger className="h-8 w-[180px]">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">Todos status</SelectItem>
             <SelectItem value="open">Aberto</SelectItem>
-            <SelectItem value="canceled">Fechado</SelectItem>
+            <SelectItem value="closed">Fechado</SelectItem>
             <SelectItem value="processing">Em Progresso</SelectItem>
           </SelectContent>
         </Select>
-      </TableCell> */}
+      </TableCell>
     </TableRow>
   );
 }

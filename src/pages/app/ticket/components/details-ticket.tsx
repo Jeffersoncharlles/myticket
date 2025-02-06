@@ -38,7 +38,7 @@ const DetailsTicket = ({ ticketId, open }: DetailsTicketProps) => {
     });
   };
 
-  console.log(ticketDetails);
+  const handleCommentText = () => {};
 
   return (
     <>
@@ -83,7 +83,9 @@ const DetailsTicket = ({ ticketId, open }: DetailsTicketProps) => {
           </div>
           <div className="flex flex-col gap-4">
             <textarea className="h-36 w-full resize-none border border-zinc-600 bg-transparent" />
-            <Button variant={"secondary"}>comentar</Button>
+            <Button variant={"secondary"} onClick={() => handleCommentText}>
+              comentar
+            </Button>
           </div>
         </DialogContent>
       )}
