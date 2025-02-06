@@ -8,6 +8,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { fetchTicket, IFechtTicketResponse } from "@/services/fetch-ticket";
+import { updateTicket } from "@/services/update-ticket";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
 
@@ -17,6 +18,8 @@ interface DetailsTicketProps {
 }
 
 const DetailsTicket = ({ ticketId, open }: DetailsTicketProps) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [comment, setComment] = useState("");
   const [ticketDetails, setTicketDetails] = useState<
     IFechtTicketResponse | undefined
   >();
@@ -38,7 +41,17 @@ const DetailsTicket = ({ ticketId, open }: DetailsTicketProps) => {
     });
   };
 
-  const handleCommentText = () => {};
+  const handleCommentText = async () => {
+    setIsLoading(true);
+
+    const result = await updateTicket({ id: ticketId, comment });
+    if (result?.ticket.id !== undefined) {
+      setTicketDetails(result as IFechtTicketResponse);
+    }
+    setComment("");
+    console.log(result);
+    setIsLoading(false);
+  };
 
   return (
     <>
@@ -59,7 +72,7 @@ const DetailsTicket = ({ ticketId, open }: DetailsTicketProps) => {
                 {formatDistant(
                   new Date(
                     Number(ticketDetails?.ticket.created_at) * 1000,
-                  ).toLocaleString(),
+                  ).toString(),
                 )}
               </p>
             </div>
@@ -72,9 +85,7 @@ const DetailsTicket = ({ ticketId, open }: DetailsTicketProps) => {
                   <p className="w-full overflow-hidden">{comment.text}</p>
                   <span className="text-zinc-600">
                     {formatDistant(
-                      new Date(
-                        Number(comment.created_at) * 1000,
-                      ).toLocaleString(),
+                      new Date(Number(comment.created_at) * 1000).toString(),
                     )}
                   </span>
                 </div>
@@ -82,8 +93,16 @@ const DetailsTicket = ({ ticketId, open }: DetailsTicketProps) => {
             ))}
           </div>
           <div className="flex flex-col gap-4">
-            <textarea className="h-36 w-full resize-none border border-zinc-600 bg-transparent" />
-            <Button variant={"secondary"} onClick={() => handleCommentText}>
+            <textarea
+              className="h-36 w-full resize-none border border-zinc-600 bg-transparent"
+              onChange={(e) => setComment(e.target.value)}
+              value={comment}
+            />
+            <Button
+              variant={"secondary"}
+              onClick={handleCommentText}
+              disabled={isLoading}
+            >
               comentar
             </Button>
           </div>
