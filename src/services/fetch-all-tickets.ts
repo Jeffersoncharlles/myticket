@@ -4,7 +4,7 @@ export type OrderStatus = "open" | "closed" | "processing";
 export interface IFetchAllTickets {
   id: string;
   title: string;
-  status: OrderStatus | "all";
+  status: "open" | "closed" | "processing" | "all";
   description: string;
   created_at: string;
   updated_at: string;

@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet-async";
 import {
   Table,
   TableBody,
   TableHead,
   TableHeader,
   TableRow,
-} from "../../../components/ui/table";
-import { IFetchAllTickets, OrderStatus } from "../../../lib/database";
-import { fetchAllTickets } from "../../../services/fetch-all-tickets";
+} from "@/components/ui/table";
+import {
+  fetchAllTickets,
+  IFetchAllTickets,
+  OrderStatus,
+} from "@/services/fetch-all-tickets";
+import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import TableFilter from "./components/table-filter";
 import TableSkeleton from "./components/table-skeleton";
 import TicketTableRow from "./components/ticket-table-row";
@@ -25,7 +28,14 @@ export default function TicketPage() {
       setIsLoading(true);
       const result = await fetchAllTickets(tableFilterStatusSelected);
 
-      setTickets([...result]);
+      if (result) {
+        setTickets(
+          result.map((ticket) => ({
+            ...ticket,
+            status: ticket.status as OrderStatus,
+          })),
+        );
+      }
       setIsLoading(false);
     })();
   }, [tableFilterStatusSelected]);

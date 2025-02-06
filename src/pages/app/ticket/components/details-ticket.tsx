@@ -52,7 +52,7 @@ const DetailsTicket = ({ ticketId, open }: DetailsTicketProps) => {
             </DialogDescription>
             <div className="flex justify-between">
               <p className="text-xs text-zinc-200">
-                {ticketDetails?.ticket.user.name}
+                {ticketDetails?.ticket.user?.name}
               </p>
               <p className="text-xs text-zinc-400">
                 {formatDistant(

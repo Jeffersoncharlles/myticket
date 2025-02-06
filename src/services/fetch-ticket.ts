@@ -12,13 +12,7 @@ export interface IFetchTicket {
 
 export interface IFechtTicketResponse {
   ticket: {
-    id: string;
-    title: string;
-    status: OrderStatus;
-    description: string;
-    created_at: string;
-    updated_at: string;
-    user: {
+    user?: {
       id: string;
       name: string;
       ticketsId: number[];
@@ -29,6 +23,12 @@ export interface IFechtTicketResponse {
       ticketsId: string;
       created_at: string;
     }[];
+    id: string;
+    title: string;
+    status: string;
+    description: string;
+    created_at: string;
+    updated_at: string;
   };
 }
 
@@ -42,12 +42,12 @@ export const fetchTicket = async (id: string) => {
   const users = database.users;
 
   const ticket = data.find((ticket) => ticket.id === id);
-  if (!ticket?.id) {
+  const user = users.find((u) => u.id === id);
+  if (!ticket?.id || user?.id) {
     return;
   }
 
   const comments = details.filter((comment) => comment.ticketsId === id);
-  const user = users.find((u) => u.id === id);
 
   const result = {
     ticket: {
