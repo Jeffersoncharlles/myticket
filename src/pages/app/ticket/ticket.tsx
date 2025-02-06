@@ -27,6 +27,9 @@ export default function TicketPage() {
 
   const updateStatus = async (id: string, status: OrderStatus) => {
     // const result = await updateAllTicketStatus(id, status);
+    // seria bom usar o react query para ter cache de update
+    // e uma conexão com a api
+
     if (tickets) {
       setTickets((prevTickets) =>
         prevTickets.map((ticket) =>
@@ -41,8 +44,6 @@ export default function TicketPage() {
       );
     }
   };
-
-  useEffect(() => {}, []);
 
   useEffect(() => {
     (async () => {
