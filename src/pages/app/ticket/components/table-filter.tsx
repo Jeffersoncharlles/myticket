@@ -1,12 +1,12 @@
-import { OrderStatus } from "../services/fetch-all-tickets";
-import { Input } from "./ui/input";
+import { Input } from "../../../../components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./ui/select";
+} from "../../../../components/ui/select";
+import { OrderStatus } from "../../../../lib/database";
 
 interface ITableFilter {
   onFilter: (filter: OrderStatus | "all") => void;

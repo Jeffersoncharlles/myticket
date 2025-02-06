@@ -1,21 +1,17 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-// import { useDebounce } from "@uidotdev/usehooks";
-import TableFilter from "../../components/table-filter";
-import TableSkeleton from "../../components/table-skeleton";
-import TicketTableRow from "../../components/ticket-table-row";
 import {
   Table,
   TableBody,
   TableHead,
   TableHeader,
   TableRow,
-} from "../../components/ui/table";
-import {
-  fetchAllTickets,
-  IFetchAllTickets,
-  OrderStatus,
-} from "../../services/fetch-all-tickets";
+} from "../../../components/ui/table";
+import { IFetchAllTickets, OrderStatus } from "../../../lib/database";
+import { fetchAllTickets } from "../../../services/fetch-all-tickets";
+import TableFilter from "./components/table-filter";
+import TableSkeleton from "./components/table-skeleton";
+import TicketTableRow from "./components/ticket-table-row";
 
 export default function TicketPage() {
   const [tickets, setTickets] = useState<IFetchAllTickets[]>([]);

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { fetchTicket } from "../services/fetch-ticket";
 import {
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "./ui/dialog";
+} from "../../../../components/ui/dialog";
+import { fetchTicket } from "../../../../services/fetch-ticket";
 
 interface DetailsTicketProps {
   ticketId: string;

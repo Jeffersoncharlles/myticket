@@ -1,12 +1,12 @@
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { useState } from "react";
-import { IFetchAllTickets } from "../services/fetch-all-tickets";
+import { Button } from "../../../../components/ui/button";
+import { Dialog, DialogTrigger } from "../../../../components/ui/dialog";
+import { TableCell, TableRow } from "../../../../components/ui/table";
+import { IFetchAllTickets } from "../../../../services/fetch-all-tickets";
 import DetailsTicket from "./details-ticket";
 import { TableOrderStatus } from "./table-order-status";
-import { Button } from "./ui/button";
-import { Dialog, DialogTrigger } from "./ui/dialog";
-import { TableCell, TableRow } from "./ui/table";
 
 interface ITicketTableRowProps {
   items: IFetchAllTickets;
